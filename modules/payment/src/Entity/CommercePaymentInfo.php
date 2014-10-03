@@ -22,6 +22,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *   bundle_label = @Translation("Payment information type"),
  *   handlers = {
  *     "list_builder" = "Drupal\commerce_payment\CommercePaymentInfoListBuilder",
+ *     "views_data" = "Drupal\views\EntityViewsData",
  *     "form" = {
  *       "add" = "Drupal\commerce_payment\Form\CommercePaymentInfoForm",
  *       "edit" = "Drupal\commerce_payment\Form\CommercePaymentInfoForm",

@@ -3,7 +3,7 @@ status: true
 dependencies:
   module:
     - commerce_product
-id: products
+id: commerce_products
 label: Products
 module: views
 description: ''

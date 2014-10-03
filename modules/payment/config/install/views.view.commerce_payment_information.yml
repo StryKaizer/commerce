@@ -1,13 +1,13 @@
 langcode: en
 status: true
 dependencies: {  }
-id: commerce_orders
-label: Orders
+id: commerce_payment_information
+label: 'Payment information'
 module: views
-description: 'Display a list of orders for the store admin.'
+description: 'Display a list of payment information entities.'
 tag: ''
-base_table: commerce_order
-base_field: order_id
+base_table: commerce_payment_info
+base_field: information_id
 core: 8.x
 display:
   default:
@@ -82,19 +82,29 @@ display:
           summary: ''
           description: ''
           columns:
-            order_number: order_number
-            changed: changed
+            information_id: information_id
+            payment_method: payment_method
+            uid: uid
             status: status
+            created: created
+            changed: changed
             operations: operations
           info:
-            order_number:
+            information_id:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            changed:
+            payment_method:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uid:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -102,6 +112,20 @@ display:
               empty_column: false
               responsive: ''
             status:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            created:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            changed:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -120,17 +144,17 @@ display:
       row:
         type: fields
       fields:
-        order_number:
-          id: order_number
-          table: commerce_order
-          field: order_number
+        information_id:
+          id: information_id
+          table: commerce_payment_info
+          field: information_id
           relationship: none
           group_type: group
           admin_label: ''
           dependencies:
             module:
               - views
-          label: 'Order number'
+          label: 'Information ID'
           exclude: false
           alter:
             alter_text: false
@@ -171,17 +195,205 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-        changed:
-          id: changed
-          table: commerce_order
-          field: changed
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_singular: '1'
+          format_plural_plural: '@count'
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+          provider: views
+        payment_method:
+          id: payment_method
+          table: commerce_payment_info
+          field: payment_method
           relationship: none
           group_type: group
           admin_label: ''
           dependencies:
             module:
               - views
-          label: Updated
+          label: 'Payment method'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: ''
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+          provider: views
+        uid:
+          id: uid
+          table: commerce_payment_info
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          dependencies:
+            module:
+              - views
+          label: 'Payment information owner'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: ''
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_singular: '1'
+          format_plural_plural: '@count'
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+          provider: views
+        status:
+          id: status
+          table: commerce_payment_info
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          dependencies:
+            module:
+              - views
+          label: Status
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: ''
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_singular: '1'
+          format_plural_plural: '@count'
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+          provider: views
+        created:
+          id: created
+          table: commerce_payment_info
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          dependencies:
+            module:
+              - views
+          label: Created
           exclude: false
           alter:
             alter_text: false
@@ -227,17 +439,17 @@ display:
           timezone: ''
           plugin_id: date
           provider: views
-        status:
-          id: status
-          table: commerce_order
-          field: status
+        changed:
+          id: changed
+          table: commerce_payment_info
+          field: changed
           relationship: none
           group_type: group
           admin_label: ''
           dependencies:
             module:
               - views
-          label: 'Order status'
+          label: Changed
           exclude: false
           alter:
             alter_text: false
@@ -278,11 +490,14 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
+          date_format: medium
+          custom_date_format: ''
+          timezone: ''
+          plugin_id: date
           provider: views
         operations:
           id: operations
-          table: commerce_order
+          table: commerce_payment_info
           field: operations
           relationship: none
           group_type: group
@@ -332,11 +547,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: true
-          plugin_id: entity_operations
-          provider: views
       filters: {  }
       sorts: {  }
-      title: Orders
+      title: 'Payment information'
       header: {  }
       footer: {  }
       empty:
@@ -350,23 +563,25 @@ display:
           dependencies:
             module:
               - views
+              - views
+              - views
           empty: true
           tokenize: false
-          content: 'No orders available.'
+          content: 'No payment information entities available.'
           plugin_id: text_custom
           provider: views
       relationships: {  }
       arguments: {  }
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
-  page_1:
+  admin_page:
     display_plugin: page
-    id: page_1
+    id: admin_page
     display_title: 'Admin page'
     position: 1
     provider: views
     display_options:
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
-      path: admin/commerce/orders
+      path: admin/commerce/payment-info
       display_description: ''
